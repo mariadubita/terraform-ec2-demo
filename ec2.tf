@@ -4,7 +4,7 @@ data "aws_vpc" "lab_vpc" {
 
 resource "aws_security_group" "ec2_sg" {
   name        = "lab-ec2-sg"
-  description = "Security group for lab's EC2 instance"
+  description = "Security group for labs EC2 instance"
   vpc_id      = data.aws_vpc.lab_vpc.id
 
   ingress {
