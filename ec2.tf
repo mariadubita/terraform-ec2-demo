@@ -7,13 +7,13 @@ resource "aws_security_group" "ec2_sg" {
   description = "Security group for labs EC2 instance"
   vpc_id      = data.aws_vpc.lab_vpc.id
 
-  ingress {
-    description = "SSH"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
+  #  ingress {
+  #    description = "SSH"
+  #    from_port   = 22
+  #    to_port     = 22
+  #    protocol    = "tcp"
+  #    cidr_blocks = ["0.0.0.0/0"]
+  #  }
 
   ingress {
     description = "HTTP"

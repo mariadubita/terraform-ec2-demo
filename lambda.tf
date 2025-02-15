@@ -18,3 +18,9 @@ resource "aws_lambda_function" "ec2_status_logger" {
     Name = "ec2-status-logger"
   }
 }
+
+resource "aws_cloudwatch_log_group" "lambda_log_group" {
+    name              = "/aws/lambda/${aws_lambda_function.ec2_status_logger.function_name}"
+      retention_in_days = 14 
+}
+
