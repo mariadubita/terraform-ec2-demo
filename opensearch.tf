@@ -28,7 +28,7 @@ resource "aws_opensearch_domain" "example_domain" {
       "Condition": {
         "IpAddress": {
           "aws:SourceIp": [
-            "YOUR_IP/32"
+            "${var.allowed_ip}"
           ]
         }
       }

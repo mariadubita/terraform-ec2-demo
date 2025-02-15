@@ -1,7 +1,13 @@
 variable "aws_region" {
   type    = string
-  default = "us-east-2"
+  default = "us-east-1"
   description = "AWS region for the deployment"
+}
+
+variable "allowed_ip" {
+    type        = string
+      description = "IP or IP range for OpenSearch access"
+        default     = "0.0.0.0/0" 
 }
 
 variable "vpc_id" {
@@ -21,13 +27,13 @@ variable "key_name" {
 
 variable "opensearch_domain_name" {
   type    = string
-  default = "my-lab-os-domain"
+  default = "lab-os-domain"
   description = "Name of the OpenSearch domain"
 }
 
 variable "s3_bucket_name" {
   type    = string
-  default = "my-lab-logs-bucket-1234"
+  default = "my-lab-logs-bucket-unique-20250215"
   description = "S3 bucket for Lambda logs"
 }
 

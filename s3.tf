@@ -1,8 +1,16 @@
+resource "random_string" "suffix" {
+    length  = 8
+    upper   = false
+    lower   = true
+    numeric = true
+    special = false
+}
+
 resource "aws_s3_bucket" "lambda_logs_bucket" {
-  bucket = var.s3_bucket_name
+  bucket = "lab-s3-bucket-${random_string.suffix.result}"
 
   tags = {
-    Name = var.s3_bucket_name
+    Name = "lab-s3-bucket-${random_string.suffix.result}"
   }
 }
 
@@ -15,7 +23,3 @@ resource "aws_s3_bucket_public_access_block" "lambda_logs_bucket_block" {
   restrict_public_buckets = true
 }
 
-resource "aws_s3_bucket_acl" "lambda_logs_bucket_acl" {
-  bucket = aws_s3_bucket.lambda_logs_bucket.id
-  acl    = "private"
-}
